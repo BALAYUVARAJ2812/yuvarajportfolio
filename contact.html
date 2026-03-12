@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Bala Yuvaraj</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="brand-mark">&lt;/&gt;</span>
+                <span class="brand-name">Bala&nbsp;Yuvaraj</span>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link-active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Contact</h1>
+                    <p>Reach out for opportunities, collaborations, or questions.</p>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>Reach Me At</h3>
+                        <ul>
+                            <li><span>Email:</span> maruboyinabalayuvaraj@gmail.com</li>
+                            <li><span>Phone:</span> +91-9618668199</li>
+                            <li><span>Location:</span> India</li>
+                        </ul>
+
+                        <h3>Social</h3>
+                        <ul class="social-links">
+                            <li><a href="https://www.linkedin.com/in/balayuva-raj-maruboyina-99408a32b/">LinkedIn</a>
+                            </li>
+                            <li><a href="https://github.com/BALAYUVARAJ2812" target="github">GitHub</a></li>
+                            <li><a href="#" target="_blank">Instagram</a></li>
+                        </ul>
+                    </div>
+
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com"
+                                    autocomplete="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="How can I help you?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn primary-btn full-width" id="contact-submit">
+                            Send Message
+                        </button>
+                        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+                        <p class="form-note">
+                            Your message is sent using EmailJS (front-end only).
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Bala Yuvaraj. All rights reserved.</p>
+            <p class="footer-note">Built with passion and clean code.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // EmailJS configuration
+        const EMAILJS_SERVICE_ID = "service_q0fnrqw";
+        const EMAILJS_TEMPLATE_ID = "template_hn6632a"; // TODO: paste your EmailJS template id here
+        const EMAILJS_PUBLIC_KEY = "ZZQABX_AZfFdvGNWd"; // TODO: paste your EmailJS public key here
+
+        const form = document.getElementById("contact-form");
+        const statusEl = document.getElementById("form-status");
+        const submitBtn = document.getElementById("contact-submit");
+
+        function setStatus(message, type) {
+            statusEl.textContent = message;
+            statusEl.classList.remove("is-success", "is-error");
+            if (type === "success") statusEl.classList.add("is-success");
+            if (type === "error") statusEl.classList.add("is-error");
+        }
+
+        function setLoading(isLoading) {
+            submitBtn.disabled = isLoading;
+            submitBtn.textContent = isLoading ? "Sending..." : "Send Message";
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim());
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            setStatus("", "");
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const subject = form.subject.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || !email || !subject || !message) {
+                setStatus("Please fill in all fields.", "error");
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                setStatus("Please enter a valid email address.", "error");
+                return;
+            }
+
+            if (!window.emailjs) {
+                setStatus("Email service failed to load. Please refresh and try again.", "error");
+                return;
+            }
+
+            if (!EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+                setStatus("EmailJS is not configured yet. Add your Template ID and Public Key in contact.html.", "error");
+                return;
+            }
+
+            try {
+                setLoading(true);
+                window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+                await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                    from_name: name,
+                    reply_to: email,
+                    subject,
+                    message,
+                });
+
+                form.reset();
+                setStatus("Message sent successfully. I’ll get back to you soon.", "success");
+            } catch (err) {
+                setStatus("Failed to send. Please try again in a moment.", "error");
+            } finally {
+                setLoading(false);
+            }
+        });
+    </script>
+</body>
+
+</html>

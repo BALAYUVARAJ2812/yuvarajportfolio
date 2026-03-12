@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Bala Yuvaraj</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="brand-mark">&lt;/&gt;</span>
+                <span class="brand-name">Bala&nbsp;Yuvaraj</span>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1>About Me</h1>
+                    <p>A snapshot of who I am as a developer.</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            I am a self-driven web developer and Java programmer who enjoys turning ideas
+                            into real, working software. I focus on writing clean, maintainable code and
+                            building user interfaces that feel simple and intuitive.
+                        </p>
+                        <p>
+                            My main interests are front-end development, responsive layouts, and
+                            problem solving. I regularly practice coding challenges, explore new
+                            tools, and build personal projects to sharpen my skills.
+                        </p>
+                        <p>
+                            I am actively looking for opportunities where I can contribute to real
+                            products, learn from experienced engineers, and grow into a strong
+                            full‑stack developer over time.
+                        </p>
+                    </div>
+
+                    <div class="about-cards">
+                        <div class="info-card">
+                            <h3>Core Skills</h3>
+                            <ul>
+                                <li>HTML, CSS, JavaScript</li>
+                                <li>Responsive Web Design &amp; Flexbox/Grid</li>
+                                <li>Java, OOP, Collections Framework</li>
+                                <li>Basic SQL &amp; Relational Databases</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Strengths</h3>
+                            <ul>
+                                <li>Attention to detail &amp; clean code</li>
+                                <li>Strong debugging and problem solving</li>
+                                <li>Fast learner, eager to improve</li>
+                                <li>Good communication &amp; teamwork</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Currently Learning</h3>
+                            <ul>
+                                <li>Modern JavaScript best practices</li>
+                                <li>Front-end frameworks and component design</li>
+                                <li>Building APIs and simple backends</li>
+                                <li>Cloud computing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Bala Yuvaraj. All rights reserved.</p>
+            <p class="footer-note">Built with passion and clean code.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

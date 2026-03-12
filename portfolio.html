@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Bala Yuvaraj</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="brand-mark">&lt;/&gt;</span>
+                <span class="brand-name">Bala&nbsp;Yuvaraj</span>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Projects</h1>
+                    <p>Selected work that represents what I can build.</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <article class="project-card">
+                        <div class="project-tag">Web App</div>
+                        <h3>Gym managment system</h3>
+                        <p>
+                            A responsive task manager that lets users create, update, and filter tasks in gym.
+                            Focused on a clean UI, keyboard-friendly interactions, and mobile support.
+                        </p>
+                        <p class="project-tech">
+                            Tech: HTML, CSS, JavaScript
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">Source Code</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-tag">Java</div>
+                        <h3>Blog Management System</h3>
+                        <p>
+                            A application to manage student records including create,
+                            update, delete, and search operations using OOP and collections.
+                        </p>
+                        <p class="project-tech">
+                            Tech: Java, OOP, Collections, File Handling
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub Repo</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-tag">Responsive Design</div>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>
+                            A fully responsive portfolio site showcasing projects, skills, and
+                            contact details. Designed with a focus on typography, spacing, and
+                            smooth navigation.
+                        </p>
+                        <p class="project-tech">
+                            Tech: HTML, CSS (Flexbox/Grid)
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Bala Yuvaraj. All rights reserved.</p>
+            <p class="footer-note">Built with passion and clean code.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
